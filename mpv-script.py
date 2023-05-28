@@ -1,6 +1,12 @@
 import mpv
 import time
 import logging
+import os
+
+# Create the logs directory if it doesn't exist
+if not os.path.exists('mpv-logs'):
+    os.makedirs('mpv-logs')
+
 
 # Setup Logging
 logging.basicConfig(filename='mpv-logs/current.log', 
