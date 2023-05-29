@@ -67,7 +67,7 @@ while True:
     if lastPlaybackTime == player.playback_time:
         logging.warning("Stream is frozen. Monitoring for Restart.")
         for i in range(0, maxFrozenTime):
-            # Wait for a short time
+            # Wait for 1 second between checks
             time.sleep(1)
             # Check if the stream is still frozen
             if lastPlaybackTime == player.playback_time:
