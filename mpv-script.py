@@ -2,13 +2,13 @@ import mpv
 import time
 import logging
 import os
+from dotenv import load_dotenv
 
 # Create the logs directory if it doesn't exist
 if not os.path.exists('mpv-logs'):
     os.makedirs('mpv-logs')
 
-
-# Setup Logging
+# Setup Logging - Change to DEBUG for more verbose logging
 logging.basicConfig(filename='mpv-logs/current.log', 
                     encoding='utf-8', 
                     level=logging.INFO, 
@@ -20,8 +20,11 @@ logging.info('Starting MPV Streaming Script')
 
 # Define the URL of the stream
 stream_url = ""
+# import .env file
+load_dotenv()
+stream_url = str(os.getenv("stream_url"))
 # Check if the stream URL is empty
-if stream_url == "":
+if stream_url == "" or stream_url == "None":
     # If the stream URL is empty, ask for it
     stream_url = input("Enter the stream URL: ")
     if stream_url == "":
@@ -36,6 +39,9 @@ player = mpv.MPV()
 
 # Uncomment the following line to enable fullscreen
 # player.fullscreen = True
+
+# Toggle Fullscreen Keybind and quit
+player.keybind('f', 'cycle fullscreen')
 
 # Load the stream URL
 player.play(stream_url)
