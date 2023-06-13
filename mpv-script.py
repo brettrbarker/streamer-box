@@ -35,7 +35,7 @@ if stream_url == "" or stream_url == "None":
 logging.info("Stream URL: " + stream_url)
 
 # Create an MPV player instance
-player = mpv.MPV()
+player = mpv.MPV(hwdec='auto')
 
 # Uncomment the following line to enable fullscreen
 # player.fullscreen = True
