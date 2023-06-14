@@ -1,3 +1,5 @@
+# Instruction written for Ubuntu 22.04
+
 ## Make sure you have set a unique hostname for each device
 
 sudo hostnamectl hostname [insert hostname here]
